@@ -100,7 +100,7 @@ class CellsBoard {
             this.cells[i][j].value = this.getRandomValue()
             this.cells[i][j].sts = NOW
             this.getImage(i, j)
-            return [i, j]
+            return
           }
         }
       }
@@ -112,7 +112,19 @@ class CellsBoard {
           this.cells[i][j].value = this.getRandomValue()
           this.cells[i][j].sts = NOW
           this.getImage(i, j)
-          return [i, j]
+          return
+      }
+    }
+  }
+  getRandCellWith2Value(){
+    while(true) {
+      let i = Math.floor(Math.random() * size)
+      let j = Math.floor(Math.random() * size)
+      if (!this.cells[i][j].value) {
+          this.cells[i][j].value = 2
+          this.cells[i][j].sts = NOW
+          this.getImage(i, j)
+          return
       }
     }
   }

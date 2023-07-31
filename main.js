@@ -18,8 +18,8 @@ function initGame() {
   game = new Game
   score = 0
   cellsBoardStatic = new CellsBoard(widthCell, scoreHeightBiasField, gap, bias)
-  cellsBoardStatic.getRandomNewCell()
-  cellsBoardStatic.getRandomNewCell()
+  cellsBoardStatic.getRandCellWith2Value()
+  cellsBoardStatic.getRandCellWith2Value()
   cellsBoardStatic.setState()
   cellsBoardDynamics = new CellsBoardDynamics(widthCell, scoreHeightBiasField, gap, bias)
 }
