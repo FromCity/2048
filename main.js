@@ -126,7 +126,7 @@ animation({
         if (cellDynamic.value) {
           context.drawImage(cellDynamic.img, cellDynamic.x, cellDynamic.y)
         }
-        if (cellStatic.value && cellStatic.sts == NOW) {
+        if (cellStatic.value && cellStatic.stateDrawing == NOW) {
             context.drawImage(cellStatic.img, cellStatic.x, cellStatic.y)
         }
       }

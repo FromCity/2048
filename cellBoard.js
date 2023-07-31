@@ -13,7 +13,7 @@ class CellsBoard {
                   img: new Image(),
                   speed: 0,
                   end: 0,
-                  sts: NOW
+                  stateDrawing: NOW
                 }
             }
         }
@@ -98,7 +98,7 @@ class CellsBoard {
         for (let j = 0; j < size; j++) {
           if (this.cells[i][j].value == 0) {
             this.cells[i][j].value = this.getRandomValue()
-            this.cells[i][j].sts = NOW
+            this.cells[i][j].stateDrawing = NOW
             this.getImage(i, j)
             return
           }
@@ -110,7 +110,7 @@ class CellsBoard {
       let j = Math.floor(Math.random() * size)
       if (!this.cells[i][j].value) {
           this.cells[i][j].value = this.getRandomValue()
-          this.cells[i][j].sts = NOW
+          this.cells[i][j].stateDrawing = NOW
           this.getImage(i, j)
           return
       }
@@ -122,7 +122,7 @@ class CellsBoard {
       let j = Math.floor(Math.random() * size)
       if (!this.cells[i][j].value) {
           this.cells[i][j].value = 2
-          this.cells[i][j].sts = NOW
+          this.cells[i][j].stateDrawing = NOW
           this.getImage(i, j)
           return
       }
@@ -142,7 +142,7 @@ class CellsBoard {
               this.cells[i][j].end = this.cells[i][col + 1].y
               this.cells[i][j].speed = speed
               this.cells[i][col + 1].value = this.cells[i][col].value
-              this.cells[i][col + 1].sts = NEXT
+              this.cells[i][col + 1].stateDrawing = NEXT
               this.getImage(i, col + 1)
               this.cells[i][col].value = 0
               col++
@@ -150,7 +150,7 @@ class CellsBoard {
               this.cells[i][j].end = this.cells[i][col + 1].y
               this.cells[i][col].speed = speed
               this.cells[i][col + 1].value *= 2
-              this.cells[i][col + 1].sts = NEXT
+              this.cells[i][col + 1].stateDrawing = NEXT
               this.getImage(i, col + 1)
               score += this.cells[i][col + 1].value
               this.cells[i][col].value = 0
@@ -174,7 +174,7 @@ class CellsBoard {
               this.cells[i][j].end = this.cells[i][col - 1].y
               this.cells[i][j].speed = -speed
               this.cells[i][col - 1].value = this.cells[i][col].value
-              this.cells[i][col - 1].sts = NEXT
+              this.cells[i][col - 1].stateDrawing = NEXT
               this.getImage(i, col - 1)
               this.cells[i][col].value = 0
               col--
@@ -182,7 +182,7 @@ class CellsBoard {
               this.cells[i][j].end = this.cells[i][col - 1].y
               this.cells[i][col].speed = -speed
               this.cells[i][col - 1].value *= 2
-              this.cells[i][col - 1].sts = NEXT
+              this.cells[i][col - 1].stateDrawing = NEXT
               this.getImage(i, col - 1)
               score +=   this.cells[i][col - 1].value
               this.cells[i][col].value = 0
@@ -206,7 +206,7 @@ class CellsBoard {
               this.cells[i][j].end = this.cells[row - 1][j].x
               this.cells[i][j].speed = -speed
               this.cells[row - 1][j].value = this.cells[row][j].value
-              this.cells[row - 1][j].sts = NEXT
+              this.cells[row - 1][j].stateDrawing = NEXT
               this.getImage(row - 1, j)
               this.cells[row][j].value = 0
               row--
@@ -214,7 +214,7 @@ class CellsBoard {
               this.cells[i][j].end = this.cells[row - 1][j].x
               this.cells[row][j].speed = -speed
               this.cells[row - 1][j].value *= 2
-              this.cells[row - 1][j].sts = NEXT
+              this.cells[row - 1][j].stateDrawing = NEXT
               this.getImage(row - 1, j)
               score +=  this.cells[row - 1][j].value
               this.cells[row][j].value = 0
@@ -238,7 +238,7 @@ class CellsBoard {
               this.cells[i][j].end = this.cells[row + 1][j].x
               this.cells[i][j].speed = speed
               this.cells[row + 1][j].value = this.cells[row][j].value
-              this.cells[row + 1][j].sts = NEXT
+              this.cells[row + 1][j].stateDrawing = NEXT
               this.getImage(row + 1, j)
               this.cells[row][j].value = 0
               row++
@@ -246,7 +246,7 @@ class CellsBoard {
               this.cells[i][j].end = this.cells[row + 1][j].x
               this.cells[row][j].speed = speed
               this.cells[row + 1][j].value *= 2
-              this.cells[row + 1][j].sts = NEXT
+              this.cells[row + 1][j].stateDrawing = NEXT
               this.getImage(row + 1, j)
               score +=  this.cells[row + 1][j].value
               this.cells[row][j].value = 0
@@ -293,7 +293,7 @@ class CellsBoard {
   setStatusAllNow(){
     for (let i = 0; i < size; i++) {
       for (let j = 0; j < size; j++) {
-        this.cells[i][j].sts = NOW
+        this.cells[i][j].stateDrawing = NOW
       }
     }
   }
