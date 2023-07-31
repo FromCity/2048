@@ -116,17 +116,6 @@ class CellsBoard {
       }
     }
   }
-  setTestNewCells() {
-      this.cells[0][0].value = 2
-      this.getImage(0, 0)
-      this.cells[1][0].value = 2
-      this.getImage(1, 0)
-      this.cells[2][0].value = 4
-      this.getImage(2, 0)
-      this.cells[3][0].value = 8
-      this.getImage(3, 0)
-      return
-  }
   getImage(i, j) {
     this.cells[i][j].img.src = digit2image(this.cells[i][j].value)
   }
